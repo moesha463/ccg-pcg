@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MoveS : MonoBehaviour
 {
-    [SerializeField] float healForce = 5;
+    [SerializeField] float healForce = 3;
 
     [SerializeField] Image playerHealthBar;
     [SerializeField] Image enemyHealthBar; 
@@ -21,12 +21,16 @@ public class MoveS : MonoBehaviour
         currentFighter = _fighter.GetComponent<Player>();
         fighter = _fighter;
 
+        currentFighter.OnChoose();
+
         playerHealthBar.fillAmount = currentFighter.currentHealhtPoints/currentFighter.maxHealthPoints;
     }
     public void ChooseEnemy(Transform _enemy)
     {
         currentEnemy = _enemy.GetComponent<Enemy>();
         enemy = _enemy;
+
+        currentEnemy.OnChoose();
 
         enemyHealthBar.fillAmount = currentEnemy.currentHealthPoints/currentEnemy.maxHealthPoints;
     }
@@ -49,6 +53,7 @@ public class MoveS : MonoBehaviour
         if(fighter != null)
         {
             currentFighter.GetHeal(healForce);
+            playerHealthBar.fillAmount = currentFighter.currentHealhtPoints / currentFighter.maxHealthPoints;
         }
     }
 }

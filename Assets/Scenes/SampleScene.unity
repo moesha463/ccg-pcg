@@ -563,7 +563,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -646,7 +646,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 15, y: -45, z: 0}
 --- !u!1 &980053411
 GameObject:
@@ -742,7 +742,7 @@ RectTransform:
   - {fileID: 77587385}
   - {fileID: 380377134}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1248,6 +1248,10 @@ PrefabInstance:
     - target: {fileID: 4405482900900772383, guid: 46b66e774621b2148bd6931c5e365141, type: 3}
       propertyPath: m_Name
       value: Fighter (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405482900900772383, guid: 46b66e774621b2148bd6931c5e365141, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46b66e774621b2148bd6931c5e365141, type: 3}

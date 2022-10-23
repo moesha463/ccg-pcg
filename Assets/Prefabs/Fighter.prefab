@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4405482899419757429
 Transform:
   m_ObjectHideFlags: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1914abe0be8798a40b82d50e0bdb40b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 10
+  maxHealthPoints: 0
+  currentHealhtPoints: 0
   maxDamage: 1
-  healthPointsText: {fileID: 0}
+  circleOfChoose: {fileID: 4405482899419757426}

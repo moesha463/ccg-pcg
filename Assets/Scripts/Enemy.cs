@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     public float currentHealthPoints;
     public float maxDamage;
 
+    [SerializeField] GameObject circleOfChoose;
+
     MoveS moveS;
     private void Start()
     {
@@ -17,6 +19,10 @@ public class Enemy : MonoBehaviour
     private void OnMouseDown()
     {
         moveS.ChooseEnemy(transform);
+    }
+    public void OnChoose()
+    {
+        circleOfChoose.active = !circleOfChoose.active;
     }
     public void GetDamage(float _damage)
     {
