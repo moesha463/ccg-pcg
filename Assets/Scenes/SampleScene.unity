@@ -1243,7 +1243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405482900900772382, guid: 46b66e774621b2148bd6931c5e365141, type: 3}
       propertyPath: maxHealthPoints
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4405482900900772383, guid: 46b66e774621b2148bd6931c5e365141, type: 3}
       propertyPath: m_Name
@@ -1496,7 +1496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405482900900772382, guid: 46b66e774621b2148bd6931c5e365141, type: 3}
       propertyPath: maxHealthPoints
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4405482900900772383, guid: 46b66e774621b2148bd6931c5e365141, type: 3}
       propertyPath: m_Name

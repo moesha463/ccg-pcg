@@ -18,6 +18,8 @@ public class MoveS : MonoBehaviour
 
     public void ChooseFighter(Transform _fighter)
     {
+        if (currentFighter != null) currentFighter.OnChoose();
+
         currentFighter = _fighter.GetComponent<Player>();
         fighter = _fighter;
 
@@ -27,6 +29,8 @@ public class MoveS : MonoBehaviour
     }
     public void ChooseEnemy(Transform _enemy)
     {
+        if(currentEnemy != null) currentEnemy.OnChoose();
+
         currentEnemy = _enemy.GetComponent<Enemy>();
         enemy = _enemy;
 
@@ -38,15 +42,22 @@ public class MoveS : MonoBehaviour
     {
         if (enemy != null && fighter != null)
         {
-            float fighterDamage = Random.Range(currentFighter.maxDamage, currentFighter.maxDamage + 1);
-            float enemyDamage = Random.Range(currentEnemy.maxDamage / 2, currentEnemy.maxDamage + 1);
+            float fighterDamage = Random.Range(currentFighter.maxDamage / 2, currentFighter.maxDamage);
 
             currentEnemy.GetDamage(fighterDamage);
-            currentFighter.GetDamage(enemyDamage);
 
-            playerHealthBar.fillAmount = currentFighter.currentHealhtPoints/currentFighter.maxHealthPoints;
             enemyHealthBar.fillAmount = currentEnemy.currentHealthPoints / currentEnemy.maxHealthPoints;
         }
+    }
+    IEnumerator Defence()
+    {
+        float enemyDamage = Random.Range(currentEnemy.maxDamage / 2, currentEnemy.maxDamage);
+
+        currentFighter.GetDamage(enemyDamage);
+
+        playerHealthBar.fillAmount = currentFighter.currentHealhtPoints / currentFighter.maxHealthPoints;
+
+        yield return new WaitForSeconds(2);
     }
     public void Healing()
     {

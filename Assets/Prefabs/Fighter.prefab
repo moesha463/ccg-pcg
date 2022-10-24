@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1914abe0be8798a40b82d50e0bdb40b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 0
+  maxHealthPoints: 10
   currentHealhtPoints: 0
-  maxDamage: 1
+  maxDamage: 2
   circleOfChoose: {fileID: 4405482899419757426}

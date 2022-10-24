@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     }
     public void OnChoose()
     {
-        circleOfChoose.active = !circleOfChoose.active;
+        circleOfChoose.SetActive(!circleOfChoose.activeSelf);
     }
     public void GetDamage(float _damage)
     {

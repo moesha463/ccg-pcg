@@ -8,12 +8,16 @@ public class Player : MonoBehaviour
     public float currentHealhtPoints;
     public float maxDamage;
 
+    bool alreadyAtatcked;
+
     [SerializeField] GameObject circleOfChoose;
 
     MoveS moveS;
     private void Start()
     {
+        alreadyAtatcked = false;
         currentHealhtPoints = maxHealthPoints;
+
         moveS = FindObjectOfType<MoveS>();
     }
     private void OnMouseDown()
@@ -22,7 +26,7 @@ public class Player : MonoBehaviour
     }
     public void OnChoose()
     {
-        circleOfChoose.active = !circleOfChoose.active;
+        circleOfChoose.SetActive(!circleOfChoose.activeSelf);
     }
     public void GetDamage(float _damage)
     {
