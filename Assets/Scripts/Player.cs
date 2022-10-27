@@ -1,22 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public float maxHealthPoints;
-    public float currentHealhtPoints;
+    public float currentHealthPoints;
     public float maxDamage;
+    public bool alreadyAtatcked;
 
-    bool alreadyAtatcked;
-
+    [SerializeField] Image healthBar;
     [SerializeField] GameObject circleOfChoose;
 
     MoveS moveS;
     private void Start()
     {
         alreadyAtatcked = false;
-        currentHealhtPoints = maxHealthPoints;
+        currentHealthPoints = maxHealthPoints;
 
         moveS = FindObjectOfType<MoveS>();
     }
@@ -30,14 +31,18 @@ public class Player : MonoBehaviour
     }
     public void GetDamage(float _damage)
     {
-        currentHealhtPoints -= _damage;
+        currentHealthPoints -= _damage;
 
-        if (currentHealhtPoints <= 0) Death();
+        if (currentHealthPoints <= 0) Death();
     }
     public void GetHeal(float _healForce)
     {
-        currentHealhtPoints += _healForce;
-        currentHealhtPoints = Mathf.Clamp(currentHealhtPoints, 0, maxHealthPoints);
+        currentHealthPoints += _healForce;
+        currentHealthPoints = Mathf.Clamp(currentHealthPoints, 0, maxHealthPoints);
+    }
+    public void SetHPonHealthBar()
+    {
+        healthBar.fillAmount = currentHealthPoints / maxHealthPoints;
     }
     void Death()
     {

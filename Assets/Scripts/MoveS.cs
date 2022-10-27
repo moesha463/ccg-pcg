@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class MoveS : MonoBehaviour
 {
+    [Header("SuperForces")]
     [SerializeField] float healForce = 3;
-
-    [SerializeField] Image playerHealthBar;
-    [SerializeField] Image enemyHealthBar; 
 
     Transform fighter;
     Transform enemy;
+    
+    [SerializeField] FightersManager fightersManager;
 
     Player currentFighter;
     Enemy currentEnemy;
@@ -25,7 +25,7 @@ public class MoveS : MonoBehaviour
 
         currentFighter.OnChoose();
 
-        playerHealthBar.fillAmount = currentFighter.currentHealhtPoints/currentFighter.maxHealthPoints;
+        currentFighter.SetHPonHealthBar();
     }
     public void ChooseEnemy(Transform _enemy)
     {
@@ -36,35 +36,37 @@ public class MoveS : MonoBehaviour
 
         currentEnemy.OnChoose();
 
-        enemyHealthBar.fillAmount = currentEnemy.currentHealthPoints/currentEnemy.maxHealthPoints;
+        currentEnemy.SetHPonHealthBar();
     }
     public void Attack()
     {
-        if (enemy != null && fighter != null)
+        if (enemy != null && fighter != null && currentFighter.alreadyAtatcked == false)
         {
             float fighterDamage = Random.Range(currentFighter.maxDamage / 2, currentFighter.maxDamage);
 
             currentEnemy.GetDamage(fighterDamage);
 
-            enemyHealthBar.fillAmount = currentEnemy.currentHealthPoints / currentEnemy.maxHealthPoints;
+            currentEnemy.SetHPonHealthBar();
+
+            currentFighter.alreadyAtatcked = true;
         }
     }
-    IEnumerator Defence()
+    public void Defence()
     {
         float enemyDamage = Random.Range(currentEnemy.maxDamage / 2, currentEnemy.maxDamage);
 
         currentFighter.GetDamage(enemyDamage);
 
-        playerHealthBar.fillAmount = currentFighter.currentHealhtPoints / currentFighter.maxHealthPoints;
+        currentFighter.SetHPonHealthBar();
 
-        yield return new WaitForSeconds(2);
+        fightersManager.EndOfDefence();
     }
     public void Healing()
     {
         if(fighter != null)
         {
             currentFighter.GetHeal(healForce);
-            playerHealthBar.fillAmount = currentFighter.currentHealhtPoints / currentFighter.maxHealthPoints;
+            currentFighter.SetHPonHealthBar();
         }
     }
 }

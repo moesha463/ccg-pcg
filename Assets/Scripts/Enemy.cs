@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float currentHealthPoints;
     public float maxDamage;
 
+    [SerializeField] Image healthBar;
     [SerializeField] GameObject circleOfChoose;
 
     MoveS moveS;
@@ -29,6 +31,10 @@ public class Enemy : MonoBehaviour
         currentHealthPoints -= _damage;
 
         if (currentHealthPoints <= 0) Death();
+    }
+    public void SetHPonHealthBar()
+    {
+        healthBar.fillAmount = currentHealthPoints / maxHealthPoints;
     }
     void Death()
     {
