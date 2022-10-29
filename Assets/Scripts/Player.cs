@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public float maxHealthPoints;
     public float currentHealthPoints;
     public float maxDamage;
-    public bool alreadyAtatcked;
+    public float speed;
 
     [SerializeField] Image healthBar;
     [SerializeField] GameObject circleOfChoose;
@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     MoveS moveS;
     private void Start()
     {
-        alreadyAtatcked = false;
         currentHealthPoints = maxHealthPoints;
 
         moveS = FindObjectOfType<MoveS>();

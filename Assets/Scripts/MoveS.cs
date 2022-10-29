@@ -40,15 +40,13 @@ public class MoveS : MonoBehaviour
     }
     public void Attack()
     {
-        if (enemy != null && fighter != null && currentFighter.alreadyAtatcked == false)
+        if (enemy != null && fighter != null)
         {
             float fighterDamage = Random.Range(currentFighter.maxDamage / 2, currentFighter.maxDamage);
 
             currentEnemy.GetDamage(fighterDamage);
 
             currentEnemy.SetHPonHealthBar();
-
-            currentFighter.alreadyAtatcked = true;
         }
     }
     public void Defence()

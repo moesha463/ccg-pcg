@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public float maxHealthPoints;
     public float currentHealthPoints;
     public float maxDamage;
+    public float speed;
 
     [SerializeField] Image healthBar;
     [SerializeField] GameObject circleOfChoose;

@@ -195,7 +195,7 @@ MonoBehaviour:
   maxHealthPoints: 10
   currentHealthPoints: 0
   maxDamage: 2
-  alreadyAtatcked: 0
+  speed: 1
   healthBar: {fileID: 8469660401339882817}
   circleOfChoose: {fileID: 4405482899419757426}
 --- !u!1 &4457218897492730255
